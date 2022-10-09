@@ -1,0 +1,24 @@
+IMAPAccount uni
+Host imap.163.com
+User tutict@163.com
+Pass HUBVNVIMQQOXSNVZ
+Port 993
+SSLType IMAPS
+AuthMechs Login
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore uni-remote
+Account uni
+
+MaildirStore uni-local
+Path ~/Mail/
+Inbox ~/Mail/Inbox
+
+Channel uni
+Far :uni-remote:
+Near :uni-local:
+Patterns "Sent Mail" "Starred" "All Mail" "Trash"
+Create Both
+Sync All
+Expunge Both
+SyncState *

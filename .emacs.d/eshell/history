@@ -1,0 +1,114 @@
+exit
+exit
+gcc -c -g -o hgl1 hgl.c
+objdump -S hgl1 > hgl.txt
+emacs hgl.txt
+emacs hgl.c
+gcc -c -o -g hgl hgl.c
+gcc -c -o -g hgl1 hgl.c
+gcc -o -g hgl hgl.c
+gcc -o -g hgl hgl.c
+gcc hgl.c
+gcc -c hgl.c
+gcc -c -o -g hgl hgl.c
+gcc -c -g hgl hgl.c
+gcc -c hgl.c
+hgl
+./hgl
+gcc -o hgl hgl.c
+./hgl
+objdump -S hgl>hgl.txt
+emacs hgl.txt
+emacs hgl.txt
+emacs hgl.c
+gcc -c -o -g hgl hgl.c
+gcc -c hgl.c
+./hgl
+gdb a.out
+gdb hgl
+gcc -c hgl.c
+gcc -o hgl.c
+gcc -o hgl hgl.c
+gcc -g hgl.c
+objdump -S hgl > hgl.txt
+emacs hgl.c
+gcc -o -g -c hgl hgl.c
+gcc -c -o -g hgl_text hgl_text.c
+gcc -g hgl_text.c
+objdump -S hgl_text > hgl_text.c
+objdump -S a.out > hgl_text
+emacs hgl_text
+mu index --maildir=~/Mail --my-address=tutict@163.com
+]mu -version
+mu
+mu -v
+./a.out
+ls
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+./a.out
+gcc exp4-2.cpp
+./a.out
+gcc exp4-2.cpp
+./a.out
+gcc exp4-2.cpp
+./a.out
+gcc exp4-2.cpp
+./a.out
+gcc exp4-2.cpp
+./a.out
+gcc exp4-3.cpp 
+./a.out
+gcc exp4-3.cpp 
+./a.out
+gcc exp4-3.cpp 
+./a.out
+gcc exp4-3.cpp 
+./a.out
+gcc 4-1.cpp 
+./a.out
+gcc 4-1.cpp 
+./a.out
+sudo mhwd -i pci vidio-nvidia-470xx
+sudo mhwd -i pci video-nvidia-470xx
+./a.out
+gcc 4-1.cpp 
+./a.out
+gcc 4-1.cpp
+./a.out

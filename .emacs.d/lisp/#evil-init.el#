@@ -1,0 +1,31 @@
+
+(require 'evil)
+(evil-mode 1)
+
+
+(global-evil-leader-mode)
+(evil-leader/set-leader "<SPC>")
+(evil-leader/set-key
+ "ff" 'counsel-find-file
+ "s" 'ido-switch-buffer
+ "k" 'ido-kill-buffer
+ "fr" 'recentf-open-files
+ "0" 'select-window-0
+ "1" 'select-window-1
+ "2" 'select-window-2
+ "3" 'select-window-3
+ ";" 'counsel-M-x
+ "r" 'split-window-right
+ "d" 'split-window-below
+ "wm" 'delete-other-windows
+ "n" 'eaf-open-browser
+ "y" 'eaf-open-netease-cloud-music
+ "e" 'restart-emacs
+ "t" 'treemacs-select-window
+ "c" 'calendar
+ )
+
+(window-numbering-mode 1)
+
+(provide 'evil-init)
+ 

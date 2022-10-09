@@ -1,0 +1,31 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sun Oct  2 22:01:07 2022
+;; Desktop file format version 208
+;; Emacs version 28.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (25401 39331 43645 746000) (desktop . "208") "tutict@tutict-omenbyhplaptop17cb1xxx" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-SRC-Hack-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#eeeeec") (background-color . "#2e3436") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground . "white") (scroll-bar-background) (menu-bar-lines . 0) (tab-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha . 0.87) (no-focus-on-map) (no-accept-focus) (fullscreen) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#fce94f") (sticky) (environment) (powerline-cache) (last-focus-update . t) (frameset--id . "149D-04B1-AF65-8591") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":1") (explicit-name) (height . 36) (width . 80) (left . 40) (top . 80)) ((min-height . 4) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 92) (min-pixel-width . 110) (min-pixel-height-ignore . 92) (min-pixel-width-ignore . 44) (min-pixel-height-safe . 23) (min-pixel-width-safe . 22)) leaf (pixel-width . 896) (pixel-height . 805) (total-width . 81) (total-height . 35) (normal-height . 1.0) (normal-width . 1.0) (buffer "hgl_1.tex" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 71) (start . 1)) (prev-buffers ("*dashboard*" 1 172) ("hgl_1.tex" 1 71) ("*scratch*" 1 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/hgl_1.tex" "~/_region_.tex" "~/hgl_1.log" "~/.emacs" "~/hgl.rs.tex" "~/#hgl_text.c#" "~/hgl.java" "~/.emacs.d/lisp/evil-init.el" "~/.offlineimaprc" "~/.offlineimap.py" "~/.authinfo" "~/.mbsyncrc" "/usr/share/doc/mu/mu4e-about.org" "~/.emacs.d/lisp/dap-mode-init.el" "~/hgl.rs" "~/.emacs.d/lisp/rust-init.el" "~/hgl.go" "~/hgl.js" "~/hgl.py" "~/hgl.c"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/tutict/hgl_1.tex"
+  "hgl_1.tex"
+  'latex-mode
+  '(auto-fill-mode override-global-mode outline-minor-mode global-auto-revert-mode company-mode flx-ido-mode flycheck-mode ivy-mode cdlatex-mode TeX-PDF-mode reftex-mode dap-mode)
+  71
+  '(68 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 25401 39328 401694 906000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (TeX-master . t))
+  '((mark-ring nil)))
+

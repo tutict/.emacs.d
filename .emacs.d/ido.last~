@@ -1,0 +1,28 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/tutict/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ 
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/tutict/" (25227 19570 873980 116000) ".emacs.d/" ".emacs" ".vimrc" ".hplip/" ".dir_colors" "图片/" ".vim/" ".nvidia-settings-rc" ".local/" "v2ray-linux-64/" ".nv/" "tmp.text" "c:" ".zhistory" ".zshrc" ".config/" ".deepinwine/" ".TabNine/" "模板/" ".bash_logout" "音乐/" ".ssh/" ".gnupg/" "delve/" "go/" "y:/" ".tabnine/" ".bash_profile" "z:/" ".npm/" "work/" ".cache/" ".mozilla/" ".java/" ".m2/" ".dropbox/" ".android/" ".var/" ".wget-hsts" ".emacs~" "../" "学习/" ".themes/" "MEGAsync Downloads/" "ThunderNetwork/" ".viminfo" ".Xclients" ".zotero/" "文档/" "视频/" "hgl.go" ".sogouinput/" "Dropbox/" ".ideavimrc" "公共/" "hgl.go~" ".bashrc" ".xinitrc" "MEGA/" "./" ".nanorc" ".vscode-oss/" "MEGAsync/" ".pki/" "Zotero/" "迅雷下载/" "桌面/" "hgl.java~" ".wine/" "游戏/" ".zcompdump" "下载/" ".dropbox-dist/" "hgl.java")
+
+ ("/home/" (25223 63834 56259 923000) "tutict/" "../" "./")
+
+ ("/home/tutict/.emacs.d/" (25227 12933 390350 415000) "request/" ".extension/" "site-lisp/" "eclipse.jdt.ls/" "lisp/" "recentf" ".cache/" "auto-save-list/" "../" "eshell/" "elpa/" "eaf/" "./" ".lsp-session-v1" "netease-cloud-music/" "workspace/" "jdt-language-server-latest/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

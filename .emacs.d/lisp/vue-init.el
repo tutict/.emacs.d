@@ -1,0 +1,7 @@
+;;;vue模式
+(use-package vue-mode
+  ;; disable the ugly background color
+  ;; https://github.com/AdamNiederer/vue-mode#how-do-i-disable-that-ugly-background-color
+  :config (set-face-background 'mmm-default-submode-face nil))
+
+(provide 'vue-init)
