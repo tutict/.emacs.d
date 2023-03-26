@@ -11,9 +11,10 @@
  		 (python-mode . (lambda () (require 'dap-python)))
  		 (go-mode . (lambda () (require 'dap-dlv-go)))
  		 (php-mode . (lambda () (require 'dap-php)))
+		 (rust-mode . (lambda () (require 'dap-gdb-lldb)))
  		 (go-mode . (lambda () (require 'dap-go)))
- 		 (js-mode . (lambda () (require 'dap-edge)))
- 		 ((c-mode c++-mode) . (lambda () (require 'dap-lldb)))))
+ 		 (js-mode . (lambda () (require 'dap-chrome)))
+ 		 ((c-mode c++-mode) . (lambda () (require 'dap-gdb-lldb)))))
 
 
 

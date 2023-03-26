@@ -1,3 +1,4 @@
+;;; require.el
 (require 'evil-init)
 (require 'company-init)
 (require 'tabnine-init)
@@ -21,6 +22,7 @@
 (require 'rili-init)
 (require 'mu4e-init)
 (require 'latex-init)
+(require 'php-init)
 
 
 (provide 'require)

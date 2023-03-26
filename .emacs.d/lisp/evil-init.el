@@ -23,7 +23,7 @@
  "d" 'split-window-below
  "w" 'delete-other-windows
  "n" 'eaf-open-browser
- "yy" 'eaf-open-netease-cloud-music
+ "yy" 'netease-cloud-music
  "e" 'restart-emacs
  "t" 'treemacs-select-window
  "c" 'calendar
