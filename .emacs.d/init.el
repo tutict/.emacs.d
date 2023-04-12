@@ -8,6 +8,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(mind-wave-enable-debug t)
  '(org-agenda-files nil)
  '(package-selected-packages
    '(lsp-mode yasnippet lsp-treemacs flycheck company which-key dap-mode php-mode))
@@ -101,7 +102,8 @@
 (add-to-list 'load-path "~/.emacs.d/mind-wave")
 (require 'mind-wave)
 ;;让EMACS能翻墙
-(setq url-proxy-services '(("http" . "127.0.0.1:1087")))
+(setq url-proxy-services '(("http" . "127.0.0.1:1087")
+                           ("https" . "127.0.0.1:1087")))
 
 
 
