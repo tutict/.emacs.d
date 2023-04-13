@@ -5,7 +5,7 @@
 ;;设置f3打开.emacs
 (defun my-find()
   (interactive)
-   ( find-file "~/.emacs"))
+   ( find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "<f3>") 'my-find)
 ;;设置f4打开eshell
 (global-set-key [f4] 'eshell)

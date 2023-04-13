@@ -59,8 +59,14 @@
   while (search-forward "\r" nil t) (replace-match ""))
 ;;设置垃圾回收，加速启动
 (setq gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-threshold (* 100 1024 1024))
+(setq gc-cons-percentage 0.6)
 ;;用y/n代替yes/no
 (defalias 'yes-or-no-p 'y-or-n-p)
+;;lsp-mode性能设置
+(setq lsp-enable-file-watchers nil)
+(setq lsp-file-watch-threshold 1000)
+(setq lsp-idle-delay 0.5)
 ;;org-mode语法高亮
 (require 'org)
 (setq org-src-fontify-natively t)
@@ -96,8 +102,6 @@
 (package-install 'consult)
 ;;使emacs停止报警音
 (setq ring-bell-function 'ignore)
-;;网易云音乐相关
-(require 'netease-cloud-music-comment)
 ;;mind-wave
 (add-to-list 'load-path "~/.emacs.d/mind-wave")
 (require 'mind-wave)
