@@ -76,6 +76,18 @@
                               (1- cn-day)))) 
     (format "%04d-%02d-%02d 周%s %s%s" year month 
             day dayname cn-month-string cn-day-string))) 
+;;今天的日期高亮
+(defface my-calendar-today-date-face
+  '((t :inherit calendar-today :underline t))
+  "Face for highlighting today's date in the calendar.")
+
+(defun my-calendar-mark-today ()
+  "Highlight today's date in the calendar."
+  (when (calendar-date-is-visible-p (calendar-current-date))
+    (calendar-mark-visible-date (calendar-current-date) 'my-calendar-today-date-face)))
+
+(add-hook 'calendar-today-visible-hook 'my-calendar-mark-today)
+
 
 (provide 'rili-init)
 ;;;rili-init.el ends here

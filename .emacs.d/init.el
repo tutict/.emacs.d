@@ -61,6 +61,10 @@
 (setq gc-cons-threshold most-positive-fixnum)
 (setq gc-cons-threshold (* 100 1024 1024))
 (setq gc-cons-percentage 0.6)
+;;禁止启动过程中自动初始化 package 系统
+(setq package-enable-at-startup nil)
+;;阻止在启动时隐式调整 Emacs 窗口大小
+(setq frame-inhibit-implied-resize t)
 ;;用y/n代替yes/no
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;;lsp-mode性能设置

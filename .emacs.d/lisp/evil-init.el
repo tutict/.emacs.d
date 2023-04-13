@@ -31,6 +31,12 @@
  "pf" 'project-find-file
  "ps" 'consult-ripgrep
  "m" 'mu4e
+ "ai" 'mind-wave-refactory-code-with-input
+ "asv" 'mind-wave-summary-video
+ "asw" 'mind-wave-summary-web
+ "aec" 'mind-wave-explain-code
+ "arw" 'mind-wave-restore-window-configuration
+ "arc" 'mind-wave-refactory-code
  )
 
 (window-numbering-mode 1)

@@ -23,6 +23,7 @@
 (require 'mu4e-init)
 (require 'latex-init)
 (require 'php-init)
-
+(require 'treemacs-init)
+(require 'flycheck-init)
 
 (provide 'require)
