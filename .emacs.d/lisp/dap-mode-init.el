@@ -1,5 +1,4 @@
  (use-package dap-mode
-   :ensure t
    :functions dap-hydra/nil
    :diminish
    :bind (:map lsp-mode-map
@@ -14,6 +13,7 @@
 		 (rust-mode . (lambda () (require 'dap-gdb-lldb)))
  		 (go-mode . (lambda () (require 'dap-go)))
  		 (js-mode . (lambda () (require 'dap-chrome)))
+ 		 (html-mode . (lambda () (require 'dap-chrome)))
  		 ((c-mode c++-mode) . (lambda () (require 'dap-gdb-lldb)))))
 
 

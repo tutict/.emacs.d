@@ -7,8 +7,8 @@
   :config (setq indent-tabs-mode nil                ;rust use spaces instead of tab
                 rust-format-on-save t)              ;format code before save
   )
-(use-package 'flycheck-rust)
-(use-package 'cargo)
+(use-package flycheck-rust)
+(use-package cargo)
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 

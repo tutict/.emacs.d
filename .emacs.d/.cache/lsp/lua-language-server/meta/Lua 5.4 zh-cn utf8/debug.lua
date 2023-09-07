@@ -1,4 +1,4 @@
----@meta
+---@meta debug
 
 ---
 ---
@@ -57,14 +57,14 @@ function debug.getfenv(o) end
 function debug.gethook(co) end
 
 ---@alias infowhat string
----|+'"n"'     # `name` 和 `namewhat`
----|+'"S"'     # `source`，`short_src`，`linedefined`，`lalinedefined`，和 `what`
----|+'"l"'     # `currentline`
----|+'"t"'     # `istailcall`
----|+'"u"' # `nups`、`nparams` 和 `isvararg`
----|+'"f"'     # `func`
----|+'"r"'     # `ftransfer` 和 `ntransfer`
----|+'"L"'     # `activelines`
+---|+"n"     # `name` 和 `namewhat`
+---|+"S"     # `source`，`short_src`，`linedefined`，`lalinedefined`，和 `what`
+---|+"l"     # `currentline`
+---|+"t"     # `istailcall`
+---|+"u" # `nups`、`nparams` 和 `isvararg`
+---|+"f"     # `func`
+---|+"r"     # `ftransfer` 和 `ntransfer`
+---|+"L"     # `activelines`
 
 ---
 ---返回关于一个函数信息的表。
@@ -73,7 +73,7 @@ function debug.gethook(co) end
 ---
 ---@overload fun(f: integer|function, what?: infowhat):debuginfo
 ---@param thread thread
----@param f      integer|async fun()
+---@param f      integer|async fun(...):...
 ---@param what?  infowhat
 ---@return debuginfo
 ---@nodiscard
@@ -84,9 +84,9 @@ function debug.getinfo(thread, f, what) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-debug.getlocal"])
 ---
----@overload fun(f: integer|async fun(), index: integer):string, any
+---@overload fun(f: integer|async fun(...):..., index: integer):string, any
 ---@param thread  thread
----@param f       integer|async fun()
+---@param f       integer|async fun(...):...
 ---@param index   integer
 ---@return string name
 ---@return any    value
@@ -117,7 +117,7 @@ function debug.getregistry() end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-debug.getupvalue"])
 ---
----@param f  async fun()
+---@param f  async fun(...):...
 ---@param up integer
 ---@return string name
 ---@return any    value
@@ -164,20 +164,20 @@ function debug.setcstacklimit(limit) end
 function debug.setfenv(object, env) end
 
 ---@alias hookmask string
----|+'"c"' # 每当 Lua 调用一个函数时，调用钩子。
----|+'"r"' # 每当 Lua 从一个函数内返回时，调用钩子。
----|+'"l"' # 每当 Lua 进入新的一行时，调用钩子。
+---|+"c" # 每当 Lua 调用一个函数时，调用钩子。
+---|+"r" # 每当 Lua 从一个函数内返回时，调用钩子。
+---|+"l" # 每当 Lua 进入新的一行时，调用钩子。
 
 ---
 ---将一个函数作为钩子函数设入。
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-debug.sethook"])
 ---
----@overload fun(hook: async fun(), mask: hookmask, count?: integer)
----@overload fun(thread: thread)
----@overload fun()
+---@overload fun(hook: (async fun(...):...), mask: hookmask, count?: integer)
+---@overload fun(thread: thread):...
+---@overload fun(...):...
 ---@param thread thread
----@param hook   async fun()
+---@param hook   async fun(...):...
 ---@param mask   hookmask
 ---@param count? integer
 function debug.sethook(thread, hook, mask, count) end
@@ -211,7 +211,7 @@ function debug.setmetatable(value, meta) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-debug.setupvalue"])
 ---
----@param f     async fun()
+---@param f     async fun(...):...
 ---@param up    integer
 ---@param value any
 ---@return string name
@@ -247,7 +247,7 @@ function debug.traceback(thread, message, level) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-debug.upvalueid"])
 ---
----@param f async fun()
+---@param f async fun(...):...
 ---@param n integer
 ---@return lightuserdata id
 ---@nodiscard
@@ -259,9 +259,9 @@ function debug.upvalueid(f, n) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-debug.upvaluejoin"])
 ---
----@param f1 async fun()
+---@param f1 async fun(...):...
 ---@param n1 integer
----@param f2 async fun()
+---@param f2 async fun(...):...
 ---@param n2 integer
 function debug.upvaluejoin(f1, n1, f2, n2) end
 

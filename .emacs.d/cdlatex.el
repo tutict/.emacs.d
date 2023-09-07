@@ -604,6 +604,7 @@ automatic help when idle for more than this amount of time."
   :group 'cdlatex-miscellaneous-configurations
   :type 'number)
 
+(add-to-list 'load-path "/home/tutict/.emacs.d/lisp")
 (require 'texmathp)
 
 ;;;============================================================================

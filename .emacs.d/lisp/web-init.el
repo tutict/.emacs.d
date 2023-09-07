@@ -5,12 +5,7 @@
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
         web-mode-enable-current-element-highlight t
-        web-mode-enable-css-colorization t)
-  (use-package company-web
-    :config
-    (add-to-list 'company-backends 'company-web-html)
-    (add-to-list 'company-backends 'company-css))
-  )
+        web-mode-enable-css-colorization t))
 
 (use-package emmet-mode
   :hook (web-mode css-mode))

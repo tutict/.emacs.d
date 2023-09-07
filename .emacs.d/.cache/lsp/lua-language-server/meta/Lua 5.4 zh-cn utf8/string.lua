@@ -1,4 +1,4 @@
----@meta
+---@meta string
 
 ---
 ---
@@ -13,7 +13,7 @@ string = {}
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.byte"])
 ---
----@param s  string
+---@param s  string|number
 ---@param i? integer
 ---@param j? integer
 ---@return integer ...
@@ -36,7 +36,7 @@ function string.char(byte, ...) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.dump"])
 ---
----@param f      async fun()
+---@param f      async fun(...):...
 ---@param strip? boolean
 ---@return string
 ---@nodiscard
@@ -47,13 +47,13 @@ function string.dump(f, strip) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.find"])
 ---
----@param s       string
----@param pattern string
+---@param s       string|number
+---@param pattern string|number
 ---@param init?   integer
 ---@param plain?  boolean
----@return integer start
----@return integer end
----@return any ... captured
+---@return integer|nil start
+---@return integer|nil end
+---@return any|nil ... captured
 ---@nodiscard
 function string.find(s, pattern, init, plain) end
 
@@ -62,7 +62,7 @@ function string.find(s, pattern, init, plain) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.format"])
 ---
----@param s any
+---@param s string|number
 ---@param ... any
 ---@return string
 ---@nodiscard
@@ -83,8 +83,8 @@ function string.format(s, ...) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.gmatch"])
 ---
----@param s       string
----@param pattern string
+---@param s       string|number
+---@param pattern string|number
 ---@param init?   integer
 ---@return fun():string, ...
 function string.gmatch(s, pattern, init) end
@@ -94,8 +94,8 @@ function string.gmatch(s, pattern, init) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.gsub"])
 ---
----@param s       string
----@param pattern string
+---@param s       string|number
+---@param pattern string|number
 ---@param repl    string|number|table|function
 ---@param n?      integer
 ---@return string
@@ -108,7 +108,7 @@ function string.gsub(s, pattern, repl, n) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.len"])
 ---
----@param s string
+---@param s string|number
 ---@return integer
 ---@nodiscard
 function string.len(s) end
@@ -118,7 +118,7 @@ function string.len(s) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.lower"])
 ---
----@param s string
+---@param s string|number
 ---@return string
 ---@nodiscard
 function string.lower(s) end
@@ -128,8 +128,8 @@ function string.lower(s) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.match"])
 ---
----@param s       string
----@param pattern string
+---@param s       string|number
+---@param pattern string|number
 ---@param init?   integer
 ---@return any ...
 ---@nodiscard
@@ -143,6 +143,7 @@ function string.match(s, pattern, init) end
 ---
 ---@param fmt string
 ---@param v1  string|number
+---@param v2? string|number
 ---@param ... string|number
 ---@return string binary
 ---@nodiscard
@@ -164,9 +165,9 @@ function string.packsize(fmt) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.rep"])
 ---
----@param s    string
+---@param s    string|number
 ---@param n    integer
----@param sep? string
+---@param sep? string|number
 ---@return string
 ---@nodiscard
 function string.rep(s, n, sep) end
@@ -176,7 +177,7 @@ function string.rep(s, n, sep) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.reverse"])
 ---
----@param s string
+---@param s string|number
 ---@return string
 ---@nodiscard
 function string.reverse(s) end
@@ -186,7 +187,7 @@ function string.reverse(s) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.sub"])
 ---
----@param s  string
+---@param s  string|number
 ---@param i  integer
 ---@param j? integer
 ---@return string
@@ -212,7 +213,7 @@ function string.unpack(fmt, s, pos) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-string.upper"])
 ---
----@param s string
+---@param s string|number
 ---@return string
 ---@nodiscard
 function string.upper(s) end

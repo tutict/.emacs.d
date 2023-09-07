@@ -8,9 +8,21 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-backends nil)
+ '(corfu-echo-mode t)
+ '(corfu-history-mode t)
+ '(corfu-indexed-mode t)
+ '(corfu-popupinfo-mode t)
+ '(corfu-sort-function
+   #[128 "\304\300\2\"\207"
+	 [corfu-history--sort corfu-sort-length-alpha :override nil apply]
+	 4 advice])
+ '(global-company-mode nil)
+ '(global-corfu-mode t)
+ '(mind-wave-enable-debug t)
  '(org-agenda-files nil)
  '(package-selected-packages
-   '(lsp-mode yasnippet lsp-treemacs flycheck company which-key dap-mode php-mode))
+   '(lsp-mode lsp-treemacs flycheck company which-key dap-mode php-mode))
  '(send-mail-function 'mailclient-send-it)
  '(warning-suppress-log-types
    '((use-package)
@@ -32,15 +44,21 @@
  ;; If there is more than one, they won't work right.
  )
 ;;use-package
-(package-install 'use-package)
+;; 安装 use-package，如果尚未安装
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+;; 加载 use-package
+(eval-when-compile
+  (require 'use-package))
+
 ;;use-package相关	
-(setq use-package-always-ensure t)
+(setq use-package-always-ensure nil)
 (setq use-package-always-defer t)
 (setq use-package-always-demand nil)
 (setq use-package-expand-minimally t)
 (setq use-package-verbose t)
 ;;重启emacs的快捷方式	
-(require 'use-package)
 (use-package restart-emacs)
 ;;判断操作系统
 (defconst *is-linux* (eq system-type 'gnu/linux))
@@ -58,8 +76,18 @@
   while (search-forward "\r" nil t) (replace-match ""))
 ;;设置垃圾回收，加速启动
 (setq gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-threshold (* 100 1024 1024))
+(setq gc-cons-percentage 0.6)
+;;禁止启动过程中自动初始化 package 系统
+(setq package-enable-at-startup nil)
+;;阻止在启动时隐式调整 Emacs 窗口大小
+(setq frame-inhibit-implied-resize t)
 ;;用y/n代替yes/no
 (defalias 'yes-or-no-p 'y-or-n-p)
+;;lsp-mode性能设置
+(setq lsp-enable-file-watchers nil)
+(setq lsp-file-watch-threshold 1000)
+(setq lsp-idle-delay 0.5)
 ;;org-mode语法高亮
 (require 'org)
 (setq org-src-fontify-natively t)
@@ -68,13 +96,15 @@
 ;;.emacs文件如有变动，自动加载
 (global-auto-revert-mode t)
 ;;光标移动到新buffer
-(require 'popwin)
-(popwin-mode t)
+(use-package popwin
+  :ensure nil
+  :defer t)
 ;;窗口跳转
 (use-package ace-window
   :bind (("M-o" . 'ace-window)))
 (use-package benchmark-init
-  :ensure t
+  :defer t
+  :ensure nil
   :config
   ;; To disable collection of benchmark data after init is done.
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
@@ -82,32 +112,36 @@
 (defun indent-buffer()
   (interactive)
   (indent-region (point-min)(point-max)))
-;;无序查找
-(package-install 'orderless)
-(setq completion-styles '(orderless))
 ;;命令注释
-(package-install 'marginalia)
-(marginalia-mode t)
+(use-package marginalia
+  :defer nil
+  :config
+  (marginalia-mode t))
 ;;显示快捷键C-x C-h
-(package-install 'embark)
-(setq prefix-help-command 'embark-prefix-help-command)
+(use-package embark
+  :ensure nil
+  :defer t
+  :config
+  (setq prefix-help-command 'embark-prefix-help-command))
 ;;swiper
-(package-install 'consult)
+(use-package consult
+  :ensure nil
+  :defer t)
 ;;使emacs停止报警音
 (setq ring-bell-function 'ignore)
-;;网易云音乐相关
-(require 'netease-cloud-music-comment)
 ;;mind-wave
 (add-to-list 'load-path "~/.emacs.d/mind-wave")
 (require 'mind-wave)
 ;;让EMACS能翻墙
-(setq url-proxy-services '(("http" . "127.0.0.1:1087")))
+(setq url-proxy-services '(("http" . "127.0.0.1:1087")
+                           ("https" . "127.0.0.1:1087")))
 
+;; 设置 consult-find 命令来使用 fd
+(setq consult-find-command "fd --color=never --full-path ARG OPTS")
 
-
+(require 'cl-lib)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'require)
 
 
-(setq inhibit-eol-conversion t)
 

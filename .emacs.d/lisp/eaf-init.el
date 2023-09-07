@@ -1,8 +1,6 @@
 ;;eaf神器配置
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
 (require 'eaf)
-(require 'netease-cloud-music)
-(require 'netease-cloud-music-ui)
 (require 'eaf-camera)
 (require 'eaf-git)
 (require 'eaf-rss-reader)
@@ -25,6 +23,7 @@
 (require 'eaf-org-previewer)
 (require 'eaf-terminal)
 (require 'eaf-airshare)
+
 
 (use-package eaf
   :load-path "~/.emacs.d/site-lisp/emacs-application-framework"

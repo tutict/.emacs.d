@@ -2,6 +2,8 @@
   '((emacs "24.3"))
   :commit "02435560415bbadbcf5051fb7042880549170e7e" :authors
   '(("Steve Purcell"))
+  :maintainers
+  '(("David Holm" . "dholmster@gmail.com"))
   :maintainer
   '("David Holm" . "dholmster@gmail.com")
   :keywords

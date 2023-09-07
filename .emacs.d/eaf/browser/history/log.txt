@@ -1,10 +1,22 @@
 百度一下，你就知道ᛝhttp://www.baidu.com/ᛡ16.0
+Googleᛝhttps://www.google.com/ᛡ10.75
 GitHub: Where the world builds software · GitHubᛝhttps://github.com/ᛡ7.75
-Googleᛝhttps://www.google.com/ᛡ7.75
+前端程序学习: 前端程序学习ᛝhttps://gitee.com/hrbu-2021/front-end-program-learningᛡ7.75
+GitHub - emacs-eaf/eaf-netease-cloud-music: Play Netease Cloud Music from Emacsᛝhttps://github.com/emacs-eaf/eaf-netease-cloud-musicᛡ6.25
+HRBU-2021: HRBU-2021ᛝhttps://gitee.com/hrbu-2021ᛡ4.75
+练习 · HRBU-2021/前端程序学习 - 码云 - 开源中国ᛝhttps://gitee.com/hrbu-2021/front-end-program-learning/tree/master/练习ᛡ4.75
+GitHub - emacs-eaf/emacs-application-framework: EAF, an extensible framework that revolutionizes the graphical capabilities of Emacsᛝhttps://github.com/emacs-eaf/emacs-application-frameworkᛡ4.75
+Emacs Application Framework · GitHubᛝhttps://github.com/orgs/emacs-eaf/repositoriesᛡ4.75
+DuckDuckGo — Privacy, simplified.ᛝhttps://duckduckgo.com/ᛡ4.5
 YouTubeᛝhttps://www.youtube.com/ᛡ4.0
-DuckDuckGo — Privacy, simplified.ᛝhttps://duckduckgo.com/ᛡ2.5
+练习/06--香山红叶.html · HRBU-2021/前端程序学习 - 码云 - 开源中国ᛝhttps://gitee.com/hrbu-2021/front-end-program-learning/blob/master/练习/06--香山红叶.htmlᛡ3.25
+Issues · emacs-eaf/eaf-netease-cloud-music · GitHubᛝhttps://github.com/emacs-eaf/eaf-netease-cloud-music/issuesᛡ3.25
+browser · GitHub Topics · GitHubᛝhttps://github.com/topics/browserᛡ3.25
 Overviewᛝhttps://docs.docker.com/get-started/ᛡ2.5
 Docker Docs: How to build, share, and run applicationsᛝhttps://docs.docker.com/ᛡ2.5
+Emacs Application Framework · GitHubᛝhttps://github.com/orgs/emacs-eaf/repositories?page=2ᛡ2.5
+Repository search results · GitHubᛝhttps://github.com/search?q=neteasemusic&type=repositoriesᛡ2.5
+谷歌翻译ᛝhttps://translate-google-com.translate.goog/translate?hl=en&sl=auto&tl=zh-CN&u=file%3A%2F%2F%2Ftmp%2FburlOx1G6j.html&_x_tr_sl=auto&_x_tr_tl=zh-CN&_x_tr_hl=enᛡ2.0
 dap-gdb-lldb apparently requires nodejs · Issue #442 · emacs-lsp/dap-mode · GitHubᛝhttps://github.com/emacs-lsp/dap-mode/issues/442ᛡ1.75
 GNU ELPA - advice-patchᛝhttp://elpa.gnu.org/packages/advice-patch.htmlᛡ1.75
 哔哩哔哩 (゜-゜)つロ 干杯~-bilibiliᛝhttps://www.bilibili.com/ᛡ1.75
@@ -12,6 +24,14 @@ Containerize an applicationᛝhttps://docs.docker.com/get-started/02_our_app/ᛡ
 Get Dockerᛝhttps://docs.docker.com/get-docker/ᛡ1.75
 Install Docker Desktop on Linuxᛝhttps://docs.docker.com/desktop/install/linux-install/ᛡ1.75
 email.notify.docker.comᛝhttps://email.notify.docker.com/c/eJxMzT1yhSAQAODTYOeb_UHUgiIN92Bhd2TylIzBIrfPTKrUX_HVuGhQmzRiWHcPgMTTETcQ2hapq3AuaCuALZtwqEWz2uqnFgmIgQmRgIBfuKPPwAKZ2O_gnYerj2Y_r9rLp96v0s_pHY8xvr4dfzhKjtLxyD92lHIp_bmGo1T6Ze0-Zz1zeztKBGXnTfIcFtLZg-VZQsU57Fi1iqmYOUrTHcczWhnOAwb-W0c8HvkNAAD__zPtROQᛡ1.75
+emacs-lisp-reference-manual-zh_cn/Lisp_Data_Types（Lisp 数据类型）.md at main · tutict/emacs-lisp-reference-manual-zh_cn · GitHubᛝhttps://github.com/tutict/emacs-lisp-reference-manual-zh_cn/blob/main/翻译/第二章Lisp_Data_Types/Lisp_Data_Types（Lisp%20数据类型）.mdᛡ1.75
+emacs-lisp-reference-manual-zh_cn/Introduction（序言）.md at main · tutict/emacs-lisp-reference-manual-zh_cn · GitHubᛝhttps://github.com/tutict/emacs-lisp-reference-manual-zh_cn/blob/main/翻译/第一章Introduction/Introduction（序言）.mdᛡ1.75
+Gitee - 企业级 DevOps 研发效能平台ᛝhttps://gitee.com/ᛡ1.75
+jshand (jshand) - Gitee.comᛝhttps://gitee.com/jshandᛡ1.75
+CSS Float（浮动） | 菜鸟教程ᛝhttps://www.runoob.com/css/css-float.htmlᛡ1.75
+Configuring Dependabot security updates - GitHub Docsᛝhttps://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updatesᛡ1.75
+配置 Dependabot 安全更新 - GitHub 文档ᛝhttps://docs.github.com/zh/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updatesᛡ1.75
+代码随想录ᛝhttps://programmercarl.com/ᛡ1.75
 网易邮箱帐号安全中心ᛝhttps://m.reg.163.com/index.html#/emailᛡ1.5
 克里米亚大桥爆炸瞬间:火海掩埋车辆_百度搜索ᛝhttps://www.baidu.com/s?wd=%E5%85%8B%E9%87%8C%E7%B1%B3%E4%BA%9A%E5%A4%A7%E6%A1%A5%E7%88%86%E7%82%B8%E7%9E%AC%E9%97%B4%3A%E7%81%AB%E6%B5%B7%E6%8E%A9%E5%9F%8B%E8%BD%A6%E8%BE%86&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1ᛡ1.5
 Join GitHub · GitHubᛝhttps://github.com/signup?user_email=tutitct%40163.com&source=form-home-signupᛡ1.5
@@ -19,3 +39,9 @@ Sign in to GitHub · GitHubᛝhttps://github.com/login?return_to=https%3A%2F%2Fg
 hello at DuckDuckGoᛝhttps://duckduckgo.com/?q=hello&t=h_ᛡ1.5
 Adele - Hello (Lyrics) - YouTubeᛝhttps://www.youtube.com/watch?v=be12BC5pQLEᛡ1.5
 伍六七之暗影宿命第10集-国创-全集-高清独家在线观看-bilibili-哔哩哔哩ᛝhttps://www.bilibili.com/bangumi/play/ep720232?spm_id_from=333.1007.0.0ᛡ1.5
+Google Translateᛝhttps://translate.google.com/translate?hl=en&sl=auto&tl=zh-CN&u=file%3A%2F%2F%2Ftmp%2FburlOx1G6j.htmlᛡ1.5
+x at DuckDuckGoᛝhttps://duckduckgo.com/?t=h_&q=xᛡ1.5
+Emacs Application Framework · GitHubᛝhttps://github.com/orgs/emacs-eaf/repositories?page=1ᛡ1.5
+Login - Gitee.comᛝhttps://gitee.com/login?redirect_to_url=%2Fhrbu-2021%2Ffront-end-program-learning%2Fcommit%2Fc05bf6587ada9de18e258109e7eaf678387b873bᛡ1.5
+Error 429 · GitHubᛝhttps://github.com/search?q=neteasemusic&type=repositories&s=stars&o=descᛡ1.5
+揭秘互联网大厂研发流程 | 代码随想录ᛝhttps://programmercarl.com/前序/互联网大厂研发流程.htmlᛡ1.0

@@ -1,5 +1,7 @@
 ---@diagnostic disable: undefined-global
 
+config.addonManager.enable        = -- TODO: need translate!
+"Whether the addon manager is enabled or not."
 config.runtime.version            =
 "Lua运行版本。"
 config.runtime.path               =
@@ -25,7 +27,7 @@ config.runtime.unicodeName        =
 config.runtime.nonstandardSymbol  =
 "支持非标准的符号。请务必确认你的运行环境支持这些符号。"
 config.runtime.plugin             =
-"插件路径，请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/Plugins)了解用法。"
+"插件路径，请查阅[文档](https://luals.github.io/wiki/plugins)了解用法。"
 config.runtime.pluginArgs         = -- TODO: need translate!
 "Additional arguments for the plugin."
 config.runtime.fileEncoding       =
@@ -76,8 +78,16 @@ config.diagnostics.groupFileStatus =
 设置为 `Fallback` 意味着组中的诊断由 `diagnostics.neededFileStatus` 单独设置。
 其他设置将覆盖单独设置，但是不会覆盖以 `!` 结尾的设置。
 ]]
+config.diagnostics.workspaceEvent =
+"设置触发工作区诊断的时机。"
+config.diagnostics.workspaceEvent.OnChange =
+"当文件发生变化时触发工作区诊断。"
+config.diagnostics.workspaceEvent.OnSave =
+"当文件保存时触发工作区诊断。"
+config.diagnostics.workspaceEvent.None =
+"关闭工作区诊断。"
 config.diagnostics.workspaceDelay =
-"进行工作区诊断的延迟（毫秒）。当你启动工作区，或编辑了任意文件后，将会在后台对整个工作区进行重新诊断。设置为负数可以禁用工作区诊断。"
+"进行工作区诊断的延迟（毫秒）。"
 config.diagnostics.workspaceRate  =
 "工作区诊断的运行速率（百分比）。降低该值会减少CPU占用，但是也会降低工作区诊断的速度。你当前正在编辑的文件的诊断总是全速完成，不受该选项影响。"
 config.diagnostics.libraryFiles   =
@@ -124,7 +134,7 @@ config.workspace.checkThirdParty  =
 * Jass
 ]]
 config.workspace.userThirdParty          =
-'在这里添加私有的第三方库适配文件路径，请参考内置的[配置文件路径](https://github.com/sumneko/lua-language-server/tree/master/meta/3rd)'
+'在这里添加私有的第三方库适配文件路径，请参考内置的[配置文件路径](https://github.com/LuaLS/lua-language-server/tree/master/meta/3rd)'
 config.workspace.supportScheme           =
 '为以下 scheme 的lua文件提供语言服务。'
 config.completion.enable                 =
@@ -247,6 +257,8 @@ config.hint.semicolon.SameLine           =
 '2个语句在同一行时，在它们之间显示分号。'
 config.hint.semicolon.Disable            =
 '禁用虚拟分号。'
+config.codeLens.enable                   = -- TODO: need translate!
+'启用代码度量。'
 config.format.enable                     =
 '启用代码格式化程序。'
 config.format.defaultConfig              =
@@ -256,20 +268,16 @@ config.format.defaultConfig              =
 ]]
 config.spell.dict                        =
 '拼写检查的自定义单词。'
+config.nameStyle.config                  =
+'设定命名风格检查的配置'
 config.telemetry.enable                  =
 [[
-启用遥测，通过网络发送你的编辑器信息与错误日志。在[此处](https://github.com/sumneko/lua-language-server/wiki/Home#privacy)阅读我们的隐私声明。
+启用遥测，通过网络发送你的编辑器信息与错误日志。在[此处](https://luals.github.io/privacy/#language-server)阅读我们的隐私声明。
 ]]
 config.misc.parameters                   =
-'VSCode中启动语言服务时的[命令行参数](https://github.com/sumneko/lua-language-server/wiki/Getting-Started#arguments)。'
-config.IntelliSense.traceLocalSet        =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
-config.IntelliSense.traceReturn          =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
-config.IntelliSense.traceBeSetted        =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
-config.IntelliSense.traceFieldInject     =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
+'VSCode中启动语言服务时的[命令行参数](https://luals.github.io/wiki/usage#arguments)。'
+config.misc.executablePath               =
+'VSCode中指定可执行文件路径。'
 config.type.castNumberToInteger          =
 '允许将 `number` 类型赋给 `integer` 类型。'
 config.type.weakUnionCheck               =
@@ -284,6 +292,12 @@ config.type.weakNilCheck                 =
 
 此设置为 `false` 时，`numer|nil` 类型无法赋给 `number` 类型；为 `true` 是则可以。
 ]]
+config.doc.privateName                   =
+'将特定名称的字段视为私有，例如 `m_*` 意味着 `XXX.m_id` 与 `XXX.m_type` 是私有字段，只能在定义所在的类中访问。'
+config.doc.protectedName                 =
+'将特定名称的字段视为受保护，例如 `m_*` 意味着 `XXX.m_id` 与 `XXX.m_type` 是受保护的字段，只能在定义所在的类极其子类中访问。'
+config.doc.packageName                   =
+'将特定名称的字段视为package，例如 `m_*` 意味着 `XXX.m_id` 与 `XXX.m_type` 只能在定义所在的文件中访问。'
 config.diagnostics['unused-local']          =
 '未使用的局部变量'
 config.diagnostics['unused-function']       =
@@ -352,6 +366,14 @@ config.diagnostics['duplicate-doc-param']   = -- TODO: need translate!
 'Enable diagnostics for a duplicated param annotation name.'
 config.diagnostics['duplicate-set-field']   = -- TODO: need translate!
 'Enable diagnostics for setting the same field in a class more than once.'
+config.diagnostics['incomplete-signature-doc'] = -- TODO: need translate!
+'Incomplete @param or @return annotations for functions.'
+config.diagnostics['invisible']             = -- TODO: need translate!
+'Enable diagnostics for accesses to fields which are invisible.'
+config.diagnostics['missing-global-doc']    = -- TODO: need translate!
+'Missing annotations for globals! Global functions must have a comment and annotations for all parameters and return values.'
+config.diagnostics['missing-local-export-doc'] = -- TODO: need translate!
+'Missing annotations for exported locals! Exported local functions must have a comment and annotations for all parameters and return values.'
 config.diagnostics['missing-parameter']     = -- TODO: need translate!
 'Enable diagnostics for function calls where the number of arguments is less than the number of annotated function parameters.'
 config.diagnostics['missing-return']        = -- TODO: need translate!
@@ -374,6 +396,8 @@ config.diagnostics['return-type-mismatch']  = -- TODO: need translate!
 'Enable diagnostics for return values whose type does not match the type declared in the corresponding return annotation.'
 config.diagnostics['spell-check']           = -- TODO: need translate!
 'Enable diagnostics for typos in strings.'
+config.diagnostics['name-style-check']      = -- TODO: need translate!
+'Enable diagnostics for name style.'
 config.diagnostics['unbalanced-assignments']= -- TODO: need translate!
 'Enable diagnostics on multiple assignments if not all variables obtain a value (e.g., `local x,y = 1`).'
 config.diagnostics['undefined-doc-class']   = -- TODO: need translate!
@@ -392,3 +416,20 @@ config.diagnostics['unknown-operator']      = -- TODO: need translate!
 'Enable diagnostics for unknown operators.'
 config.diagnostics['unreachable-code']      = -- TODO: need translate!
 'Enable diagnostics for unreachable code.'
+config.diagnostics['global-element']       = -- TODO: need translate!
+'Enable diagnostics to warn about global elements.'
+config.typeFormat.config                    = -- TODO: need translate!
+'Configures the formatting behavior while typing Lua code.'
+config.typeFormat.config.auto_complete_end  = -- TODO: need translate!
+'Controls if `end` is automatically completed at suitable positions.'
+config.typeFormat.config.auto_complete_table_sep = -- TODO: need translate!
+'Controls if a separator is automatically appended at the end of a table declaration.'
+config.typeFormat.config.format_line        = -- TODO: need translate!
+'Controls if a line is formatted at all.'
+
+command.exportDocument =
+'Lua: 导出文档...'
+command.addon_manager.open =
+'Lua: 打开插件管理器...'
+command.reloadFFIMeta =
+'Lua: 重新生成luajit的FFI模块C语言元数据'

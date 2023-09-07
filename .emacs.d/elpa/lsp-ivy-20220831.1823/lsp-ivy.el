@@ -18,8 +18,6 @@
 ;; Authors: Sebastian Sturm
 ;;          Oliver Rausch
 ;; Keywords: languages, debug
-;; Package-Version: 20220831.1823
-;; Package-Commit: 9ecf4dd9b1207109802bd1882aa621eb1c385106
 ;; URL: https://github.com/emacs-lsp/lsp-ivy
 ;; Package-Requires: ((emacs "25.1") (dash "2.14.1") (lsp-mode "6.2.1") (ivy "0.13.0"))
 ;; Version: 0.5

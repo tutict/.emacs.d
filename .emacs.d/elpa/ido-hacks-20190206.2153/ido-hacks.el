@@ -6,8 +6,6 @@
 ;; Author: Andreas Politz
 ;; Maintainer: Scott Jaderholm <jaderholm@gmail.com>
 ;; Version: 0.1
-;; Package-Version: 20190206.2153
-;; Package-Commit: d2153a3e8d23436ee07ecae2a106f434361a10c5
 ;; Keywords: convenience
 
 ;; This program is free software; you can redistribute it and/or modify

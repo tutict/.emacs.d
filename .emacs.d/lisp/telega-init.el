@@ -1,5 +1,4 @@
 (use-package telega
-  :ensure t
   :commands (telega) 
   :init (setq telega-proxies 
               '((:server "localhost"

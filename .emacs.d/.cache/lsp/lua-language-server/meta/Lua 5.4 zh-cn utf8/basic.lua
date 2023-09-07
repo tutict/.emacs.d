@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 ---
 ---独立版Lua的启动参数。
@@ -16,19 +16,20 @@ arg = {}
 ---@generic T
 ---@param v? T
 ---@param message? any
+---@param ... any
 ---@return T
 ---@return any ...
 function assert(v, message, ...) end
 
 ---@alias gcoptions
----|>'"collect"'      # 做一次完整的垃圾收集循环。
----| '"stop"'         # 停止垃圾收集器的运行。
----| '"restart"'      # 重启垃圾收集器的自动运行。
----| '"count"'        # 以 K 字节数为单位返回 Lua 使用的总内存数。
----| '"step"'         # 单步运行垃圾收集器。 步长“大小”由 `arg` 控制。
----| '"isrunning"'    # 返回表示收集器是否在工作的布尔值。
----| '"incremental"'  # 改变收集器模式为增量模式。
----| '"generational"' # 改变收集器模式为分代模式。
+---|>"collect"      # 做一次完整的垃圾收集循环。
+---| "stop"         # 停止垃圾收集器的运行。
+---| "restart"      # 重启垃圾收集器的自动运行。
+---| "count"        # 以 K 字节数为单位返回 Lua 使用的总内存数。
+---| "step"         # 单步运行垃圾收集器。 步长“大小”由 `arg` 控制。
+---| "isrunning"    # 返回表示收集器是否在工作的布尔值。
+---| "incremental"  # 改变收集器模式为增量模式。
+---| "generational" # 改变收集器模式为分代模式。
 
 ---
 ---这个函数是垃圾收集器的通用接口。 通过参数 opt 它提供了一组不同的功能。
@@ -36,6 +37,7 @@ function assert(v, message, ...) end
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-collectgarbage"])
 ---
 ---@param opt? gcoptions
+---@param ... any
 ---@return any
 function collectgarbage(opt, ...) end
 
@@ -74,7 +76,7 @@ _G = {}
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-getfenv"])
 ---
----@param f? integer|async fun()
+---@param f? integer|async fun(...):...
 ---@return table
 ---@nodiscard
 function getfenv(f) end
@@ -107,9 +109,9 @@ function getmetatable(object) end
 function ipairs(t) end
 
 ---@alias loadmode
----| '"b"'  # 只能是二进制代码块。
----| '"t"'  # 只能是文本代码块。
----|>'"bt"' # 可以是二进制也可以是文本。
+---| "b"  # 只能是二进制代码块。
+---| "t"  # 只能是文本代码块。
+---|>"bt" # 可以是二进制也可以是文本。
 
 ---
 ---加载一个代码块。
@@ -155,7 +157,7 @@ function loadfile(filename, mode, env) end
 function loadstring(text, chunkname) end
 
 ---@version 5.1
----@param proxy boolean|table
+---@param proxy boolean|table|userdata
 ---@return userdata
 ---@nodiscard
 function newproxy(proxy) end
@@ -167,6 +169,7 @@ function newproxy(proxy) end
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-module"])
 ---
 ---@param name string
+---@param ...  any
 function module(name, ...) end
 
 ---
@@ -212,8 +215,9 @@ function pairs(t) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-pcall"])
 ---
----@param f     async fun()
+---@param f     async fun(...):...
 ---@param arg1? any
+---@param ...   any
 ---@return boolean success
 ---@return any result
 ---@return any ...
@@ -224,6 +228,7 @@ function pcall(f, arg1, ...) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-print"])
 ---
+---@param ... any
 function print(...) end
 
 ---
@@ -276,7 +281,8 @@ function rawset(table, index, value) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-select"])
 ---
----@param index integer|'"#"'
+---@param index integer|"#"
+---@param ...   any
 ---@return any
 ---@nodiscard
 function select(index, ...) end
@@ -287,10 +293,40 @@ function select(index, ...) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-setfenv"])
 ---
----@param f     async fun()|integer
+---@param f     async fun(...):...|integer
 ---@param table table
 ---@return function
 function setfenv(f, table) end
+
+
+---@class metatable
+---@field __mode 'v'|'k'|'kv'|nil
+---@field __metatable any|nil
+---@field __tostring (fun(t):string)|nil
+---@field __gc fun(t)|nil
+---@field __add (fun(t1,t2):any)|nil
+---@field __sub (fun(t1,t2):any)|nil
+---@field __mul (fun(t1,t2):any)|nil
+---@field __div (fun(t1,t2):any)|nil
+---@field __mod (fun(t1,t2):any)|nil
+---@field __pow (fun(t1,t2):any)|nil
+---@field __unm (fun(t):any)|nil
+---@field __idiv (fun(t1,t2):any)|nil
+---@field __band (fun(t1,t2):any)|nil
+---@field __bor (fun(t1,t2):any)|nil
+---@field __bxor (fun(t1,t2):any)|nil
+---@field __bnot (fun(t):any)|nil
+---@field __shl (fun(t1,t2):any)|nil
+---@field __shr (fun(t1,t2):any)|nil
+---@field __concat (fun(t1,t2):any)|nil
+---@field __len (fun(t):integer)|nil
+---@field __eq (fun(t1,t2):boolean)|nil
+---@field __lt (fun(t1,t2):boolean)|nil
+---@field __le (fun(t1,t2):boolean)|nil
+---@field __index table|(fun(t,k):any)|nil
+---@field __newindex table|fun(t,k,v)|nil
+---@field __call (fun(t,...):...)|nil
+---@field __pairs (fun(t):(fun(t,k,v):any,any))|nil
 
 ---
 ---给指定表设置元表。 （你不能在 Lua 中改变其它类型值的元表，那些只能在 C 里做。） 如果 `metatable` 是 `nil`， 将指定表的元表移除。 如果原来那张元表有 `"__metatable"` 域，抛出一个错误。
@@ -299,7 +335,7 @@ function setfenv(f, table) end
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-setmetatable"])
 ---
 ---@param table      table
----@param metatable? table
+---@param metatable? metatable|table
 ---@return table
 function setmetatable(table, metatable) end
 
@@ -330,14 +366,14 @@ function tonumber(e) end
 function tostring(v) end
 
 ---@alias type
----| '"nil"'
----| '"number"'
----| '"string"'
----| '"boolean"'
----| '"table"'
----| '"function"'
----| '"thread"'
----| '"userdata"'
+---| "nil"
+---| "number"
+---| "string"
+---| "boolean"
+---| "table"
+---| "function"
+---| "thread"
+---| "userdata"
 
 ---
 ---将参数的类型编码为一个字符串返回。 函数可能的返回值有 `"nil"` （一个字符串，而不是 `nil` 值）， `"number"`， `"string"`， `"boolean"`， `"table"`， `"function"`， `"thread"`， `"userdata"`。
@@ -355,7 +391,7 @@ function type(v) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-_VERSION"])
 ---
-_VERSION = 'Lua 5.4'
+_VERSION = "Lua 5.4"
 
 ---@version >5.4
 ---
@@ -364,6 +400,7 @@ _VERSION = 'Lua 5.4'
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-warn"])
 ---
 ---@param message string
+---@param ...     any
 function warn(message, ...) end
 
 ---
@@ -371,9 +408,10 @@ function warn(message, ...) end
 ---
 ---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-xpcall"])
 ---
----@param f     async fun()
+---@param f     async fun(...):...
 ---@param msgh  function
 ---@param arg1? any
+---@param ...   any
 ---@return boolean success
 ---@return any result
 ---@return any ...

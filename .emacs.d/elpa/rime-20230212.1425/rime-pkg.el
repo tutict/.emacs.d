@@ -6,6 +6,8 @@
     (posframe "0.1.0"))
   :commit "6438abacace7d94f05fabc45b82d619677fc5fca" :authors
   '(("Shi Tianshu"))
+  :maintainers
+  '(("Shi Tianshu"))
   :maintainer
   '("Shi Tianshu")
   :keywords

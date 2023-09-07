@@ -1,11 +1,12 @@
-(require 'ido)
-(require 'ido-hacks)
-(require 'flx-ido)
-(require 'ido-vertical-mode)
+(use-package ido)
+(use-package ido-vertical-mode)
+(use-package flx-ido)
+(use-package ido-hacks
+	:init
+	(setq ido-hacks-mode t))
 
 (ido-mode 1)
 (flx-ido-mode 1)
-(ido-hacks-mode 1)
 (ido-everywhere 1)
 (ido-vertical-mode 1)
 

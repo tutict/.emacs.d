@@ -1,4 +1,4 @@
----@meta
+---@meta io
 
 ---
 ---
@@ -27,18 +27,18 @@
 io = {}
 
 ---@alias openmode
----|>'"r"'   # 读模式。
----| '"w"'   # 写模式。
----| '"a"'   # 追加模式。
----| '"r+"'  # 更新模式，所有之前的数据都保留。
----| '"w+"'  # 更新模式，所有之前的数据都删除。
----| '"a+"'  # 追加更新模式，所有之前的数据都保留，只允许在文件尾部做写入。
----| '"rb"'  # 读模式。（二进制方式）
----| '"wb"'  # 写模式。（二进制方式）
----| '"ab"'  # 追加模式。（二进制方式）
----| '"r+b"' # 更新模式，所有之前的数据都保留。（二进制方式）
----| '"w+b"' # 更新模式，所有之前的数据都删除。（二进制方式）
----| '"a+b"' # 追加更新模式，所有之前的数据都保留，只允许在文件尾部做写入。（二进制方式）
+---|>"r"   # 读模式。
+---| "w"   # 写模式。
+---| "a"   # 追加模式。
+---| "r+"  # 更新模式，所有之前的数据都保留。
+---| "w+"  # 更新模式，所有之前的数据都删除。
+---| "a+"  # 追加更新模式，所有之前的数据都保留，只允许在文件尾部做写入。
+---| "rb"  # 读模式。（二进制方式）
+---| "wb"  # 写模式。（二进制方式）
+---| "ab"  # 追加模式。（二进制方式）
+---| "r+b" # 更新模式，所有之前的数据都保留。（二进制方式）
+---| "w+b" # 更新模式，所有之前的数据都删除。（二进制方式）
+---| "a+b" # 追加更新模式，所有之前的数据都保留，只允许在文件尾部做写入。（二进制方式）
 
 ---
 ---关闭 `file` 或默认输出文件。
@@ -105,8 +105,8 @@ function io.open(filename, mode) end
 function io.output(file) end
 
 ---@alias popenmode
----| '"r"' # 从这个程序中读取数据。（二进制方式）
----| '"w"' # 向这个程序写入输入。（二进制方式）
+---| "r" # 从这个程序中读取数据。（二进制方式）
+---| "w" # 向这个程序写入输入。（二进制方式）
 
 ---
 ---用一个分离进程开启程序 `prog` 。
@@ -140,9 +140,9 @@ function io.read(...) end
 function io.tmpfile() end
 
 ---@alias filetype
----| '"file"'        # 是一个打开的文件句柄。
----| '"closed file"' # 是一个关闭的文件句柄。
----| 'nil'           # 不是文件句柄。
+---| "file"        # 是一个打开的文件句柄。
+---| "closed file" # 是一个关闭的文件句柄。
+---| `nil`         # 不是文件句柄。
 
 ---
 ---检查 `obj` 是否是合法的文件句柄。
@@ -171,18 +171,18 @@ function io.write(...) end
 ---@class file*
 local file = {}
 
----@alias readmode integer
----| '"n"'  # 读取一个数字，根据 Lua 的转换文法返回浮点数或整数。
----| '"a"'  # 从当前位置开始读取整个文件。
----|>'"l"'  # 读取一行并忽略行结束标记。
----| '"L"'  # 读取一行并保留行结束标记。
+---@alias readmode integer|string
+---| "n"  # 读取一个数字，根据 Lua 的转换文法返回浮点数或整数。
+---| "a"  # 从当前位置开始读取整个文件。
+---|>"l"  # 读取一行并忽略行结束标记。
+---| "L"  # 读取一行并保留行结束标记。
 
----@alias exitcode '"exit"'|'"signal"'
+---@alias exitcode "exit"|"signal"
 
 ---
 ---关闭 `file`。
 ---
----[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file"])
+---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file:close"])
 ---
 ---@return boolean?  suc
 ---@return exitcode? exitcode
@@ -192,7 +192,7 @@ function file:close() end
 ---
 ---将写入的数据保存到 `file` 中。
 ---
----[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file"])
+---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file:flush"])
 ---
 function file:flush() end
 
@@ -205,7 +205,7 @@ function file:flush() end
 ---```
 ---
 ---
----[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file"])
+---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file:lines"])
 ---
 ---@param ... readmode
 ---@return fun():any, ...
@@ -214,7 +214,7 @@ function file:lines(...) end
 ---
 ---读文件 `file`， 指定的格式决定了要读什么。
 ---
----[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file"])
+---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file:read"])
 ---
 ---@param ... readmode
 ---@return any
@@ -223,14 +223,14 @@ function file:lines(...) end
 function file:read(...) end
 
 ---@alias seekwhence
----| '"set"' # 基点为 0 （文件开头）。
----|>'"cur"' # 基点为当前位置。
----| '"end"' # 基点为文件尾。
+---| "set" # 基点为 0 （文件开头）。
+---|>"cur" # 基点为当前位置。
+---| "end" # 基点为文件尾。
 
 ---
 ---设置及获取基于文件开头处计算出的位置。
 ---
----[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file"])
+---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file:seek"])
 ---
 ---@param whence? seekwhence
 ---@param offset? integer
@@ -239,14 +239,14 @@ function file:read(...) end
 function file:seek(whence, offset) end
 
 ---@alias vbuf
----| '"no"'   # 不缓冲；输出操作立刻生效。
----| '"full"' # 完全缓冲；只有在缓存满或调用 flush 时才做输出操作。
----| '"line"' # 行缓冲；输出将缓冲到每次换行前。
+---| "no"   # 不缓冲；输出操作立刻生效。
+---| "full" # 完全缓冲；只有在缓存满或调用 flush 时才做输出操作。
+---| "line" # 行缓冲；输出将缓冲到每次换行前。
 
 ---
 ---设置输出文件的缓冲模式。
 ---
----[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file"])
+---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file:setvbuf"])
 ---
 ---@param mode vbuf
 ---@param size? integer
@@ -255,7 +255,7 @@ function file:setvbuf(mode, size) end
 ---
 ---将参数的值逐个写入 `file`。
 ---
----[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file"])
+---[查看文档](command:extension.lua.doc?["en-us/54/manual.html/pdf-file:write"])
 ---
 ---@param ... string|number
 ---@return file*?

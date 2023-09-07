@@ -33,6 +33,10 @@ function lovr.headset.animate(device, model) end
 ---
 ---Returns the current angular velocity of a device.
 ---
+---
+---### NOTE:
+---If the device isn't tracked, all zeroes will be returned.
+---
 ---@param device? lovr.Device # The device to get the velocity of.
 ---@return number x # The x component of the angular velocity.
 ---@return number y # The y component of the angular velocity.
@@ -61,19 +65,11 @@ function lovr.headset.getAxis(device, axis) end
 ---
 ---Returns the depth of the play area, in meters.
 ---
----
----### NOTE:
----This currently returns 0 on the Quest.
----
 ---@return number depth # The depth of the play area, in meters.
 function lovr.headset.getBoundsDepth() end
 
 ---
 ---Returns the size of the play area, in meters.
----
----
----### NOTE:
----This currently returns 0 on the Quest.
 ---
 ---@return number width # The width of the play area, in meters.
 ---@return number depth # The depth of the play area, in meters.
@@ -88,10 +84,6 @@ function lovr.headset.getBoundsGeometry(t) end
 
 ---
 ---Returns the width of the play area, in meters.
----
----
----### NOTE:
----This currently returns 0 on the Quest.
 ---
 ---@return number width # The width of the play area, in meters.
 function lovr.headset.getBoundsWidth() end
@@ -108,6 +100,14 @@ function lovr.headset.getBoundsWidth() end
 ---@return number near # The distance to the near clipping plane, in meters.
 ---@return number far # The distance to the far clipping plane, in meters, or 0 for an infinite far clipping plane with a reversed Z range.
 function lovr.headset.getClipDistance() end
+
+---
+---Returns the headset delta time, which is the difference between the current and previous predicted display times.
+---
+---When the headset is active, this will be the `dt` value passed in to `lovr.update`.
+---
+---@return number dt # The delta time.
+function lovr.headset.getDeltaTime() end
 
 ---
 ---Returns the texture dimensions of the headset display (for one eye), in pixels.
@@ -158,14 +158,6 @@ function lovr.headset.getDriver() end
 ---
 ---@return table hands # The currently tracked hand devices.
 function lovr.headset.getHands() end
-
----
----Returns a Texture that contains whatever is currently rendered to the headset.
----
----Sometimes this can be `nil` if the current headset driver doesn't have a mirror texture, which can happen if the driver renders directly to the display, like with the `desktop` driver.
----
----@return lovr.Texture mirror # The mirror texture.
-function lovr.headset.getMirrorTexture() end
 
 ---
 ---Returns the name of the headset as a string.
@@ -395,6 +387,20 @@ function lovr.headset.getPosition(device) end
 function lovr.headset.getSkeleton(device) end
 
 ---
+---Returns a Texture that will be submitted to the headset display.
+---
+---This will be the render target used in the headset's render pass.
+---
+---The texture is not guaranteed to be the same every frame, and must be called every frame to get the current texture.
+---
+---
+---### NOTE:
+---This function may return `nil` if the headset is not being rendered to this frame.
+---
+---@return lovr.Texture texture # The headset texture.
+function lovr.headset.getTexture() end
+
+---
 ---Returns the estimated time in the future at which the light from the pixels of the current frame will hit the eyes of the user.
 ---
 ---This can be used as a replacement for `lovr.timer.getTime` for timestamps that are used for rendering to get a smoother result that is synchronized with the display of the headset.
@@ -408,6 +414,10 @@ function lovr.headset.getTime() end
 
 ---
 ---Returns the current linear velocity of a device, in meters per second.
+---
+---
+---### NOTE:
+---If the device isn't tracked, all zeroes will be returned.
 ---
 ---@param device? lovr.Device # The device to get the velocity of.
 ---@return number vx # The x component of the linear velocity.
@@ -471,6 +481,28 @@ function lovr.headset.getViewPose(view) end
 function lovr.headset.isDown(device, button) end
 
 ---
+---Returns whether LÖVR has VR input focus.
+---
+---Focus is lost when the VR system menu is shown.
+---
+---The `lovr.focus` callback can be used to detect when this changes.
+---
+---@return boolean focused # Whether the application is focused.
+function lovr.headset.isFocused() end
+
+---
+---Returns whether passthrough is active.
+---
+---When passthrough is active, the real world will be rendered behind any content rendered by LÖVR, using the alpha channel to blend between the two.
+---
+---
+---### NOTE:
+---This feature is currently only supported on Oculus Quest devices.
+---
+---@return boolean active # Whether passthrough is active.
+function lovr.headset.isPassthroughEnabled() end
+
+---
 ---Returns whether a button on a device is currently touched.
 ---
 ---@param device lovr.Device # The device.
@@ -502,26 +534,6 @@ function lovr.headset.isTracked(device) end
 function lovr.headset.newModel(device, options) end
 
 ---
----Renders to each eye of the headset using a function.
----
----This function takes care of setting the appropriate graphics transformations to ensure that the scene is rendered as though it is being viewed through each eye of the player.
----
----It also takes care of setting the correct projection for the headset lenses.
----
----If the headset module is enabled, this function is called automatically by `lovr.run` with `lovr.draw` as the callback.
----
----
----### NOTE:
----At the beginning of the callback, the display is cleared to the background color.
----
----The background color can be changed using `lovr.graphics.setBackgroundColor`.
----
----If the callback is `nil`, an empty frame cleared to current graphics background color will be submitted to the headset.
----
----@param callback function # The function used to render.  Any functions called will render to the headset instead of to the window.
-function lovr.headset.renderTo(callback) end
-
----
 ---Sets the near and far clipping planes used to render to the headset.
 ---
 ---Objects closer than the near clipping plane or further than the far clipping plane will be clipped out of view.
@@ -544,6 +556,37 @@ function lovr.headset.setClipDistance(near, far) end
 ---@param frequency number # The new refresh rate, in Hz.
 ---@return boolean success # Whether the display refresh rate was successfully set.
 function lovr.headset.setDisplayFrequency(frequency) end
+
+---
+---Sets whether passthrough is active.
+---
+---When passthrough is active, the real world will be rendered behind any content rendered by LÖVR, using the alpha channel to blend between the two.
+---
+---
+---### NOTE:
+---This feature is currently only supported on Oculus Quest devices.
+---
+---@param enable boolean # Whether passthrough should be enabled.
+---@return boolean success # Whether the passthrough state was set successfully.
+function lovr.headset.setPassthroughEnabled(enable) end
+
+---
+---Starts the headset session.
+---
+---This must be called after the graphics module is initialized, and can only be called once.
+---
+---Normally it is called automatically by `boot.lua`.
+---
+function lovr.headset.start() end
+
+---
+---Submits the current headset texture to the VR display.
+---
+---This should be called after calling `lovr.graphics.submit` with the headset render pass.
+---
+---Normally this is taken care of by `lovr.run`.
+---
+function lovr.headset.submit() end
 
 ---
 ---Causes the device to vibrate with a custom strength, duration, and frequency, if possible.
@@ -590,11 +633,25 @@ function lovr.headset.wasReleased(device, button) end
 ---
 ---Different types of input devices supported by the `lovr.headset` module.
 ---
+---
+---### NOTE:
+---The difference between `hand/left` and `hand/left/point` is the first represents an object held in the hand, whereas the second represents the laser pointer used to aim.
+---
+---Drawing a controller model would use `hand/left`, whereas drawing a pointer or aiming would use `hand/left/point`.
+---
 ---@alias lovr.Device
 ---
 ---The headset.
 ---
 ---| "head"
+---
+---A shorthand for hand/left.
+---
+---| "left"
+---
+---A shorthand for hand/right.
+---
+---| "right"
 ---
 ---The left controller.
 ---
@@ -604,13 +661,13 @@ function lovr.headset.wasReleased(device, button) end
 ---
 ---| "hand/right"
 ---
----A shorthand for hand/left.
+---The left controller pointer (pose only).
 ---
----| "left"
+---| "hand/left/point"
 ---
----A shorthand for hand/right.
+---The right controller pointer (pose only).
 ---
----| "right"
+---| "hand/right/point"
 ---
 ---A device tracking the left elbow.
 ---

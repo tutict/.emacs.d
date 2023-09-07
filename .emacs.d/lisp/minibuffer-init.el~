@@ -1,0 +1,10 @@
+(add-to-list 'load-path "~/.emacs.d/site-lisp/")
+(require 'minibuffer-line)
+
+(defun my-minibuffer-setup ()
+  (setq-local frame-title-format nil)
+  (setq-local minibuffer-line-format
+              `(" " (:eval (propertize (format-time-string "%H:%M")
+                                       'face '(:foreground "white"))))))
+
+(add-hook 'minibuffer-setup-hook 'my-minibuffer-setup)

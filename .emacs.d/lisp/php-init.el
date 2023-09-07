@@ -1,23 +1,14 @@
 ;;php
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs flycheck company which-key dap-mode php-mode))
-
-(when (cl-find-if-not #'package-installed-p package-selected-packages)
-  (package-refresh-contents)
-  (mapc #'package-install package-selected-packages))
-
-(which-key-mode)
+(setq package-selected-packages '(lsp-mode lsp-treemacs flycheck dap-mode php-mode))
 (add-hook 'php-mode-hook 'lsp)
 
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024)
-      company-idle-delay 0.0
-      company-minimum-prefix-length 1
       lsp-idle-delay 0.1)  ;; clangd is fast
 
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-  (require 'dap-php)
-  (yas-global-mode))
+  (require 'dap-php))
 
 (provide 'php-init)
 ;;; php-init.el ends here

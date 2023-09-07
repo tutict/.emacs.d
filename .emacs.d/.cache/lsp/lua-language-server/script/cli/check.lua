@@ -4,10 +4,14 @@ local ws       = require 'workspace'
 local files    = require 'files'
 local diag     = require 'provider.diagnostic'
 local util     = require 'utility'
-local json     = require 'json-beautify'
+local jsonb    = require 'json-beautify'
 local lang     = require 'language'
 local define   = require 'proto.define'
 local config   = require 'config.config'
+local fs       = require 'bee.filesystem'
+local provider = require 'provider'
+
+require 'vm'
 
 lang(LOCALE)
 
@@ -16,9 +20,10 @@ if type(CHECK) ~= 'string' then
     return
 end
 
-local rootUri = furi.encode(CHECK)
+local rootPath = fs.absolute(fs.path(CHECK)):string()
+local rootUri = furi.encode(rootPath)
 if not rootUri then
-    print(lang.script('CLI_CHECK_ERROR_URI', CHECK))
+    print(lang.script('CLI_CHECK_ERROR_URI', rootPath))
     return
 end
 
@@ -48,16 +53,21 @@ lclient():start(function (client)
 
     io.write(lang.script('CLI_CHECK_INITING'))
 
+    provider.updateConfig(rootUri)
+
     ws.awaitReady(rootUri)
 
     local disables = util.arrayToHash(config.get(rootUri, 'Lua.diagnostics.disable'))
     for name, serverity in pairs(define.DiagnosticDefaultSeverity) do
         serverity = config.get(rootUri, 'Lua.diagnostics.severity')[name] or 'Warning'
+        if serverity:sub(-1) == '!' then
+            serverity = serverity:sub(1, -2)
+        end
         if define.DiagnosticSeverity[serverity] > checkLevel then
             disables[name] = true
         end
     end
-    config.set(nil, 'Lua.diagnostics.disable', util.getTableKeys(disables, true))
+    config.set(rootUri, 'Lua.diagnostics.disable', util.getTableKeys(disables, true))
 
     local uris = files.getAllUris(rootUri)
     local max  = #uris
@@ -90,7 +100,7 @@ if count == 0 then
     print(lang.script('CLI_CHECK_SUCCESS'))
 else
     local outpath = LOGPATH .. '/check.json'
-    util.saveFile(outpath, json.beautify(results))
+    util.saveFile(outpath, jsonb.beautify(results))
 
     print(lang.script('CLI_CHECK_RESULTS', count, outpath))
 end

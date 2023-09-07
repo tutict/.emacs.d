@@ -5,13 +5,14 @@
  'nil)
 (setq url-cookie-secure-storage
  '(("github.com"
-  [url-cookie "_octo" "GH1.1.1250962682.1665379911" "Tue, 10 Oct 2023 05:31:51 GMT" "/" "github.com" t]
-  [url-cookie "logged_in" "no" "Tue, 10 Oct 2023 05:31:51 GMT" "/" "github.com" t])
- (".visualstudio.com"
-  [url-cookie "VstsSession" "%7B%22PersistentSessionId%22%3A%226a031348-2d39-44ab-b4bd-048dc58034e6%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D" "Tue, 23-May-2023 10:45:15 GMT" "/" ".visualstudio.com" t]))
+  [url-cookie "logged_in" "no" "Tue, 10 Oct 2023 05:31:51 GMT" "/" "github.com" t]
+  [url-cookie "_octo" "GH1.1.1250962682.1665379911" "Tue, 10 Oct 2023 05:31:51 GMT" "/" "github.com" t]))
 )
-
+
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
+;; coding: utf-8-emacs-unix
 ;; End:
+
+;;; cookies ends here

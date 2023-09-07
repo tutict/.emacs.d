@@ -1,15 +1,13 @@
 ;;; require.el
 (require 'evil-init)
-(require 'company-init)
+(require 'buquan-init)
+(require 'lsp-init)
+(require 'lsp-java-init)
 (require 'tabnine-init)
-(require 'lazy-load)
 (require 'rime-init)
 (require 'python-init)
 (require 'ido-init)
-(require 'lsp-init)
-(require 'lsp-java-init)
 (require 'rust-init)
-(require 'ics-init)
 (require 'jianwei-init)
 (require 'dap-mode-init)
 (require 'ui-init)
@@ -25,5 +23,8 @@
 (require 'php-init)
 (require 'treemacs-init)
 (require 'flycheck-init)
+(require 'cl-lib)
+
+
 
 (provide 'require)

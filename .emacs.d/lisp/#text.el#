@@ -1,0 +1,12 @@
+(require 'corfu)
+
+;; 全局启用 Corfu 模式
+(global-corfu-mode)
+;; 设置 Corfu 的一些选项
+(setq corfu-cycle t ; 设置为循环补全
+      corfu-auto t ; 启用自动补全
+      corfu-commit-predicate nil ; 不需要确认就能提交补全
+      corfu-quit-at-boundary t ; 达到边界时退出
+      corfu-quit-no-match t) ; 没有匹配时退出
+
+(provide 'text)
