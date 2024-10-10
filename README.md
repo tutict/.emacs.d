@@ -1,7 +1,7 @@
 # 自用完整的linux的emacs文件目录  
 <h5>借鉴请自便</h5>  
 <h5>不定时更新</h5>
-*****************
+
 
 # Complete linux emacs file directory for personal use
 
